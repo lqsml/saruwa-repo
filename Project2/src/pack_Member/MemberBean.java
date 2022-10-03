@@ -1,15 +1,19 @@
 package pack_Member;
 
 public class MemberBean {
-
+	
 	private String uId;
 	private String uPw;
 	private String uName;
 	private String uEmail;
 	private String uPhone;
-	private String uZipcode;
-	private String uAddr;
-	private String[] FaveFood;
+	private String zipcode;
+	private String address;
+	private String[] faveFood;
+	private String joinTM;
+	private int sa;
+	private int status;
+	
 	public String getuId() {
 		return uId;
 	}
@@ -40,22 +44,44 @@ public class MemberBean {
 	public void setuPhone(String uPhone) {
 		this.uPhone = uPhone;
 	}
-	public String getuZipcode() {
-		return uZipcode;
+	public String getZipcode() {
+		return zipcode;
 	}
-	public void setuZipcode(String uZipcode) {
-		this.uZipcode = uZipcode;
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
 	}
-	public String getuAddr() {
-		return uAddr;
+	public String getAddress() {
+		return address;
 	}
-	public void setuAddr(String uAddr) {
-		this.uAddr = uAddr;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	public String[] getFaveFood() {
-		return FaveFood;
+		return faveFood;
 	}
 	public void setFaveFood(String[] faveFood) {
-		FaveFood = faveFood;
+		this.faveFood = faveFood;
 	}
+	public String getJoinTM() {
+		return joinTM;
+	}
+	public void setJoinTM(String joinTM) {
+		this.joinTM = joinTM;
+	}
+	public int getSa() {
+		return sa;
+	}
+	public void setSa(int sa) {
+		this.sa = sa;
+	}
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	
+	
+	
+	
 }

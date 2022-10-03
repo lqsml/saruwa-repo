@@ -1,12 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+request.setCharacterEncoding("UTF-8");
+String uId_Session = (String)session.getAttribute("uId_Session"); 
+%>
+<jsp:useBean id="mMgr" class="pack_Member.MemberMgr"/>
+<jsp:useBean id="mBean" class="pack_Member.MemberBean"/>
+<%
+mBean = mMgr.getMemberData(uId_Session);
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta charset="UTF-8">
-<title>회원가입</title>
+<title>회원 정보 수정</title>
 <link rel="shortcut icon" href="#">
 <link rel="stylesheet" href="/style/style.css">
 <script src="/source/jquery-3.6.0.min.js"></script>
@@ -24,18 +34,16 @@
 		<!-- 헤더 영역 시작 -->
 		<jsp:include page="/Common/headerTmp.jsp"/>
 		<!-- 헤더 영역 끝  -->
-		<h1>회원가입</h1>
+		<h1>회원 정보 수정</h1>
 		<hr>
 		<main id="main">
-			<form name="joinFrm" id="joinFrm">
-				<table id="joinFrmTbl">
+			<form name="modFrm" id="modFrm">
+				<table id="modFrmTbl">
 					<tbody>
 						<tr>
 							<th class="req">아이디</th>
-							<td><input type="text" name="uId" id="uId" maxlength="20"
-								autofocus>
-								<button type="button" id="idChkBtn">중복확인</button></td>
-							<td><span>영어 대소문자, 숫자 조합, 5~20자</span></td>
+							<td><%= mBean.getuId() %></td>
+							<td></td>
 						</tr>
 						<tr>
 							<th class="req">비밀번호</th>
@@ -51,8 +59,8 @@
 						</tr>
 						<tr>
 							<th class="req">이름</th>
-							<td><input type="text" id="uName" name="uName"></td>
-							<td><span id="uNameChk"></span></td>
+							<td><%= mBean.getuName() %></td>
+							<td></td>
 						</tr>
 						<tr>
 							<th class="req">이메일</th>
@@ -112,62 +120,17 @@
 									value="분식"> 분식
 							</label></td>
 						</tr>
-
+						<tr>
+							<th>쇼핑정보 수신 동의</th>
+							<td>
+							<input type="checkbox" class="usingAgreeChk" data-link="2" name="sa" id="sa" value="1"> 동의함
+							</td>
+						</tr>
+						<tr>
+							<td colspan="3"><button type="button" id="modBtn">정보 수정</button></td>
+						</tr>
 					</tbody>
-					<tfoot>
-						<tr>
-							<td colspan="3">
-								<div id="contents" class="joinAgree">
-									<div id="chkAllArea">
-										<label> <input type="checkbox" id="chkAll">
-											이용약관 및 개인정보수집 및 이용, 쇼핑정보 수신(선택)에 모두 동의합니다.
-										</label>
-									</div>
-
-									<div id="licenseArea">
-										<div class="termArea">
-											<h3>
-												<label> [필수] 이용약관 동의 
-												<input type="checkbox" class="usingAgreeChk chkRequired" data-link="0">
-													동의함
-												</label>
-											</h3>
-											<iframe src="/Common/usingAgree.jsp" class="usingAgree"></iframe>
-										</div>
-
-										<div class="termArea">
-											<h3>
-												<label> [필수] 개인정보 수집 및 이용 동의 
-												<input type="checkbox" class="usingAgreeChk chkRequired" data-link="1">
-													동의함
-												</label>
-											</h3>
-											<iframe src="/Common/personalInfoAgree.jsp" class="usingAgree"></iframe>
-										</div>
-
-										<div class="termArea">
-											<h3>
-												<label> [선택] 쇼핑정보 수신 동의 
-												<input type="checkbox" class="usingAgreeChk" data-link="2" name="sa" id="sa" value="1"> 동의함
-												</label>
-											</h3>
-											<iframe src="/Common/shopInfoAgree.jsp" class="usingAgree"></iframe>
-										</div>
-
-									</div>
-									<!--  div#licenseArea -->
-								</div>
-								<!-- div#contents -->
-							</td>
-						</tr>
-
-						<tr>
-							<td colspan="3">
-								<input type="hidden" id="status" name="status" value="1">
-								<button type="submit" id="joinSbmBtn" class="frmBtn">회원가입</button>
-							</td>
-						</tr>
-					</tfoot>
+					
 				</table>
 			</form>
 		</main>
