@@ -2,7 +2,7 @@
 ###########################
 
 create database Project01;
-#drop database Projest01;
+#drop database Project01;
 use Project01;
 
 ########관리자 테이블##########
@@ -20,55 +20,50 @@ desc manager;
 
 ##### 회원정보 테이블#########
 CREATE TABLE UserInfo(
-uNum 			int				NOT NULL UNIQUE AUTO_INCREMENT  COMMENT '번호',
 uId       		 VARCHAR(200)    NOT NULL    COMMENT '아이디', 
 uPw       	 VARCHAR(200)    NOT NULL    COMMENT '비밀번호', 
 uName     	 VARCHAR(200)    NOT NULL    COMMENT '이름(실명)', 
 uEmail     	 VARCHAR(200)    NOT NULL    COMMENT '이메일', 
-uPhone		  NCHAR(13)			NOT NULL    COMMENT '휴대폰번호', 
-zipcode   	 VARCHAR(200)       NOT NULL    COMMENT '우편번호', 
+uPhoneNum  NCHAR(13)			NOT NULL    COMMENT '휴대폰번호', 
 address   	 VARCHAR(200)   	NOT NULL    COMMENT '주소', 
-faveFood  	VARCHAR(200)                      COMMENT '선호음식(select)', 
-sa      		 int           				        COMMENT '선택약관동의여부', 
-joinTM		datetime				NOT NULL		,
-status		int						NOT NULL	COMMENT '회원 상태',
+zipcode   	 int           	 		NOT NULL    COMMENT '우편번호', 
+FaveFood  	 int            			NULL        COMMENT '선호음식(select)', 
+SA      		 int           			NULL        COMMENT '선택약관동의여부', 
      PRIMARY KEY (uId)
 );
 
-
-### 관리자 아이디 
-insert into UserInfo (uId, uPw, uName, uEmail, uPhone, zipcode, address, joinTM, status) 
-				values ('admin', '1234', '관리자', 'admin@gmail.com', '010-1234-5678', '12345', '서울시', now(), 0);
-                
-
 ALTER TABLE UserInfo COMMENT '회원정보 테이블';
 
-desc UserInfo;
-
-select * from UserInfo order by uNum desc;
-drop table UserInfo;
 
 
 ####### 상품 테이블 ########
 CREATE TABLE Products(
-pNum       		INT         		 NOT NULL    AUTO_INCREMENT COMMENT '번호', 
-pCode     		INT         		 NOT NULL    COMMENT '상품고유번호', 
+pNum       		INT         		 NOT NULL    AUTO_INCREMENT unique comment '번호', 
+pCode     		nchar(100)     NOT NULL    primary key COMMENT '상품고유번호', 
 pName     		NCHAR(100)    NOT NULL    COMMENT '상품명', 
-pPrice      		INT       	  	 NOT NULL    COMMENT '상품가격', 
+pOrigPrice      INT       	  	 NOT NULL    COMMENT '상품가격', 
 pDiscountR  	INT       		   NOT NULL    COMMENT '할인율', 
-pDivi       		INT       		   NOT NULL    COMMENT '분류', 
-     PRIMARY KEY (pNum, pCode)
+pDivi       	INT       		   NOT NULL    COMMENT '분류', 
+pSellPrice		INT					NOT NULL   COMMENT'',
+pQuan 			INT    				NULL        DEFAULT 1 COMMENT'상품수량',
+pTM				date            NOT NULL    COMMENT '업로드시간',
+pOrigImg		VARCHAR(100)    NOT NULL    COMMENT '원본 파일이름',
+pSysImg			VARCHAR(100)    NOT NULL    COMMENT '시스템 파일이름',
+pSize			INT             NULL        COMMENT '파일용량',
+pReadCnt		INT					NOT NULL,
+pContent		text				NOT NULL COMMENT'내용'
 );
-
+#drop table Products;
 ALTER TABLE Products COMMENT '상품 테이블';
 
+desc Products;
 
 
 ####레시피 게시판
 CREATE TABLE Recipe(
 rNum       INT             NOT NULL    AUTO_INCREMENT COMMENT '번호', 
 uId        VARCHAR(100)    NOT NULL    COMMENT '아이디', 
-rTitle     VARCHAR(100)    NOT NULL    COMMENT '개시글 제목', 
+rTitle     VARCHAR(100)    NOT NULL    COMMENT '게시글 제목', 
 rContent   text            NOT NULL    COMMENT '게시글 내용', 
 rViewNum   int             NOT NULL    COMMENT '조회수', 
 rUploadTM  date            NOT NULL    COMMENT '업로드시간', 
@@ -81,7 +76,7 @@ PRIMARY KEY (rNum)
 ALTER TABLE Recipe COMMENT '레시피 게시판';
 
 ALTER TABLE Recipe
-    ADD CONSTRAINT FK_Recipe_rId_UserInfo_uId FOREIGN KEY (rId)
+    ADD CONSTRAINT FK_Recipe_uId_UserInfo_uId FOREIGN KEY (uId)
 	REFERENCES UserInfo (uId) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 
@@ -107,16 +102,16 @@ ALTER TABLE QT
 
 ######장바구니 테이블##############
 CREATE TABLE Cart(
- sNum   INT    NOT NULL    AUTO_INCREMENT COMMENT '번호', 
- pCode  INT    NOT NULL    COMMENT '상품고유번호', 
- sQua   INT    NULL        DEFAULT 1 COMMENT '상품수량', 
- PRIMARY KEY (sNum)
+ cNum   INT    NOT NULL    AUTO_INCREMENT COMMENT '번호', 
+ pCode  nchar(100)    NOT NULL    COMMENT '상품고유번호', 
+ cQua   INT    NULL        DEFAULT 1 COMMENT '상품수량', 
+ PRIMARY KEY (cNum)
 );
 
 ALTER TABLE Cart COMMENT '장바구니 테이블';
 
 ALTER TABLE Cart
-    ADD CONSTRAINT FK_Cart_pNum_Products_pCode FOREIGN KEY (pNum)
+    ADD CONSTRAINT FK_Cart_pCode_Products_pCode FOREIGN KEY (pCode)
     REFERENCES Products (pCode) ON DELETE RESTRICT ON UPDATE RESTRICT;
  
  
@@ -171,7 +166,7 @@ ALTER TABLE comment_QT
 ##########레시피 댓글기능##########
 CREATE TABLE comment_R(
 cRNum      INT             NOT NULL    AUTO_INCREMENT COMMENT '번호', 
-uId        VARCHAR(100)    NOT NULL    COMMENT '아이디', 
+uId       	 VARCHAR(100)    NOT NULL    COMMENT '아이디', 
 cRDate     VARCHAR(100)    NOT NULL    COMMENT '작성일', 
 cRContent  VARCHAR(100)    NOT NULL    COMMENT '작성글', 
 rNum       INT             NOT NULL    COMMENT '부모글 번호', 
