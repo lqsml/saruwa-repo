@@ -9,7 +9,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>개인정보 수집 및 이용 동의</title>
 </head>
-
+<style>
+pre {
+    width: 800px;
+    font-size: 13px;
+    line-height: 1.2em;
+    padding: 4px;
+}
+</style>
 <body>
 
 	<!-- [필수] 개인정보 수집 및 이용 동의 -->

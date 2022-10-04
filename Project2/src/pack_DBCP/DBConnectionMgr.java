@@ -39,7 +39,7 @@ public class DBConnectionMgr {
 	
     private Vector connections = new Vector(10);
     private String _driver = "com.mysql.cj.jdbc.Driver",
-    _url = "jdbc:mysql://localhost:3306/Projest01?useSSL=false&serverTimezone=Asia/Seoul&useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true",
+    _url = "jdbc:mysql://localhost:3306/Project01?useSSL=false&serverTimezone=Asia/Seoul&useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true",
     _user = "root",
     _password = "1234";
     private boolean _traceOn = false;

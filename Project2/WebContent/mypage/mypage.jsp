@@ -20,7 +20,7 @@ String uId_Session = (String)session.getAttribute("uId_Session");
 	<div id="wrap">
 	
 		<!-- 헤더템플릿 -->
-		<jsp:include page="/Common/headerTmp.jsp"/>
+		<jsp:include page="/common/headerTmp.jsp"/>
 		<!-- 헤더템플릿 -->
 		
 		<main id="main" class="dFLex">

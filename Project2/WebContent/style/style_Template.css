@@ -60,6 +60,7 @@ nav#headerGnbArea{
 }
 #headerGnbArea ul.gnbSubMenu{
     padding-top: 10px;
+    display: none;
 }
 #headerGnbArea li.gnbSubLi{
     padding-top: 10px;

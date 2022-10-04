@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>회원가입</title>
 <link rel="shortcut icon" href="#">
-<link rel="stylesheet" href="/style/style.css">
+<link rel="stylesheet" href="/style/style_Test.css">
 <script src="/source/jquery-3.6.0.min.js"></script>
 <script src="/script/join_script.js"></script>
 <link rel="stylesheet"
@@ -17,16 +17,18 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 </head>
 <body>
-	<div id="wrap">
 
-		<!-- 헤더 영역 시작 -->
-		<jsp:include page="/Common/headerTmp.jsp"/>
-		<!-- 헤더 영역 끝  -->
+		<!-- 헤더템플릿 -->
+		<iframe src="/common/headerTmp.jsp" frameborder="0" scrolling="no"></iframe>
+		<!-- 헤더템플릿 -->
+		
+	<div id="wrap" class="joinWrap">
+		<main id="main">
 		<h1>회원가입</h1>
 		<hr>
-		<main id="main">
 			<form name="joinFrm" id="joinFrm">
 				<table id="joinFrmTbl">
 					<tbody>
@@ -132,7 +134,7 @@
 													동의함
 												</label>
 											</h3>
-											<iframe src="/Common/usingAgree.jsp" class="usingAgree"></iframe>
+											<iframe src="/common/usingAgree.jsp" class="usingAgree"></iframe>
 										</div>
 
 										<div class="termArea">
@@ -142,7 +144,7 @@
 													동의함
 												</label>
 											</h3>
-											<iframe src="/Common/personalInfoAgree.jsp" class="usingAgree"></iframe>
+											<iframe src="/common/personalInfoAgree.jsp" class="usingAgree"></iframe>
 										</div>
 
 										<div class="termArea">
@@ -151,7 +153,7 @@
 												<input type="checkbox" class="usingAgreeChk" data-link="2" name="sa" id="sa" value="1"> 동의함
 												</label>
 											</h3>
-											<iframe src="/Common/shopInfoAgree.jsp" class="usingAgree"></iframe>
+											<iframe src="/common/shopInfoAgree.jsp" class="usingAgree"></iframe>
 										</div>
 
 									</div>
@@ -173,6 +175,11 @@
 		</main>
 
 	</div>
+	
+		<!-- 푸터템플릿 -->
+		<iframe src="/common/footerTmp.jsp" frameborder="0" scrolling="no"></iframe>
+		<!-- 푸터템플릿 -->		
+	
 </body>
 <script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

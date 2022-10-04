@@ -10,7 +10,7 @@ String uId_Session = (String)session.getAttribute("uId_Session");
 <meta charset="UTF-8">
 		<title>로그인</title>
 		<link rel="shortcut icon" href="#">
-		<link rel="stylesheet" href="/style/style.css">
+		<link rel="stylesheet" href="/style/style_Test.css">
 		<script src="/source/jquery-3.6.0.min.js"></script>
 		<script src="/script/login_script.js"></script>		
 		<link rel="stylesheet"
@@ -22,45 +22,63 @@ String uId_Session = (String)session.getAttribute("uId_Session");
 </head>
 <body>
 	
-	<div id="wrap">
 	
 		<!-- 헤더템플릿 -->
-		<jsp:include page="/Common/headerTmp.jsp"/>
+		<iframe src="/common/headerTmp.jsp" frameborder="0" scrolling="no"></iframe>
 		<!-- 헤더템플릿 -->
 		
+	<div id="wrap" class="loginWrap">
 		<main id="main" class="d-flex">
 		
 			<h1>로그인</h1>
-			<hr>
 			
 			<form id="loginFrm" name="loginFrm">			
 				<div id="loginArea">
-					<div id="loginInput">
-						<div id="idArea">
-							아이디
-							<input type="text" name="uId" id="uId">
-						</div>
-						<div id="pwArea">
-							비밀번호
-							<input type="password" name="uPw" id="uPw">
-						</div>
-						<button type="button" id="loginBtn">로그인</button>
-					</div>
-					<!-- loginInput -->
+					<table id="inputTbl">
+						<tbody>
+							<tr>
+								<th>
+									아이디								
+								</th>
+								<td>
+									<input type="text" name="uId" id="uId">								
+								</td>
+							</tr>
+							<tr>
+								<th>
+									비밀번호								
+								</th>
+								<td>
+									<input type="password" name="uPw" id="uPw">								
+								</td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="2">							
+									<button type="button" id="loginBtn">로그인</button>
+								</td>
+							</tr>						
+						</tfoot>
+					</table>
+					
+
 				</div>
 				<!-- loginArea -->
 				
 				<div id="findArea">
 					<a href="/find/findId.jsp">아이디 찾기</a>
+					<span>|</span>
 					<a href="/find/findPw.jsp">비밀번호 찾기</a>
+					<span>|</span>
 					<a href="/join/join.jsp">회원가입</a>
 
 				</div>
 				<!-- findArea -->
 			</form>
 		</main>	
-
-	
 	</div>
+	<!-- div#wrap -->
+		<iframe id="iframeFooter" src="/common/footerTmp.jsp" frameborder="0" scrolling="no"></iframe>
 </body>
 </html>

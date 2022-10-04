@@ -9,6 +9,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>쇼핑정보 수신 동의</title>
 </head>
+<style>
+pre {
+    width: 800px;
+    font-size: 13px;
+    line-height: 1.2em;
+    padding: 4px;
+}
+</style>
 
 <body>
 
