@@ -32,7 +32,7 @@ mBean = mMgr.getMemberData(uId_Session);
 	<div id="wrap">
 
 		<!-- 헤더 영역 시작 -->
-		<jsp:include page="/Common/headerTmp.jsp"/>
+		<jsp:include page="/common/headerTmp.jsp"/>
 		<!-- 헤더 영역 끝  -->
 		<h1>회원 정보 수정</h1>
 		<hr>

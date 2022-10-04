@@ -22,7 +22,7 @@
 	<div id="wrap">
 
 		<!-- 헤더 영역 시작 -->
-		<jsp:include page="/Common/headerTmp.jsp"/>
+		<jsp:include page="/common/headerTmp.jsp"/>
 		<!-- 헤더 영역 끝  -->
 		<h1>회원가입</h1>
 		<hr>
@@ -132,7 +132,7 @@
 													동의함
 												</label>
 											</h3>
-											<iframe src="/Common/usingAgree.jsp" class="usingAgree"></iframe>
+											<iframe src="/common/usingAgree.jsp" class="usingAgree"></iframe>
 										</div>
 
 										<div class="termArea">
@@ -142,7 +142,7 @@
 													동의함
 												</label>
 											</h3>
-											<iframe src="/Common/personalInfoAgree.jsp" class="usingAgree"></iframe>
+											<iframe src="/common/personalInfoAgree.jsp" class="usingAgree"></iframe>
 										</div>
 
 										<div class="termArea">
@@ -151,7 +151,7 @@
 												<input type="checkbox" class="usingAgreeChk" data-link="2" name="sa" id="sa" value="1"> 동의함
 												</label>
 											</h3>
-											<iframe src="/Common/shopInfoAgree.jsp" class="usingAgree"></iframe>
+											<iframe src="/common/shopInfoAgree.jsp" class="usingAgree"></iframe>
 										</div>
 
 									</div>

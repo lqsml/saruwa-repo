@@ -116,7 +116,7 @@ public class MemberMgr {
 			if (objRS.next()) {
 
 				int recordCnt = objRS.getInt(1);
-				if (recordCnt == 1)
+				if (recordCnt == 1);
 //					loginRes = true;
 
 			}

@@ -7,7 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<iframe src="Common/headerTmp.jsp" width="100%" height="800px" frameborder="0" scrolling="no"></iframe>
+	<iframe src="common/headerTmp.jsp" frameborder="0" scrolling="no"></iframe>
 	
+	
+	<iframe src="common/footerTmp.jsp" frameborder="0" scrolling="no"></iframe>
 </body>
 </html>

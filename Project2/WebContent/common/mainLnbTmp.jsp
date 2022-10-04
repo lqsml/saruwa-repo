@@ -17,7 +17,7 @@ if (request.getParameter("gnbParam") != null) {
 <meta charset="UTF-8">
 <title>LNB Template</title>
 <link rel="stylesheet" href="/style/style_Template.css">
-<script src="../script/jquery-3.6.0.min.js"></script>
+<script src="/script/jquery-3.6.0.min.js"></script>
 <script src="/script/script_Template.js"></script>
 </head>
 <body>
@@ -26,10 +26,11 @@ if (request.getParameter("gnbParam") != null) {
 
 		<ul id="lnbMainMenu">		 
     	<% if (gnbParam.equals("myPage")) {%>
-            <li class="lnbMainLi"><a href="/member/memberMod.jsp">회원정보수정</a></li>
             <li class="lnbMainLi"><a href="#">스크랩한 게시물</a></li>
             <li class="lnbMainLi"><a href="#">장바구니</a></li>
 			<li class="lnbMainLi"><a href="#">주문내역</a></li>
+			<li class="lnbMainLi"><a href="mypage/infoMod.jsp">회원정보수정</a></li>
+			<li class="lnbMainLi"><a href="mypage/memberQuit.jsp">회원탈퇴</a></li>
 
 		<% } else if(gnbParam.equals("store")) { %> 		     		 
             <li class="lnbMainLi"><a href="">베이커리&#47;떡&#47;간식</a></li>

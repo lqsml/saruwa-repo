@@ -8,9 +8,9 @@ String uId_Session_HTmp = (String)session.getAttribute("uId_Session");
 <head>
 <meta charset="UTF-8">
 <title>header template</title>
-<link rel="stylesheet" href="../style/style_Template.css">
-<script src="../script/jquery-3.6.0.min.js"></script>
-<script src="../script/script_Template.js"></script>
+<link rel="stylesheet" href="/style/style_Template.css">
+<script src="/script/jquery-3.6.0.min.js"></script>
+<script src="/script/script_Template.js"></script>
 </head>
 <body>
 	<hr class="sepLine">
