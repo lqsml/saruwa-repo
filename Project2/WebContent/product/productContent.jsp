@@ -27,7 +27,7 @@ String pCode = Pbean.getpCode();
 String pName = Pbean.getpName();
 int pOrigPrice = Pbean.getpOrigPrice();
 int pDiscountR = Pbean.getpDiscountR();
-int pDivi = Pbean.getpDivi();
+String pDivi = Pbean.getpDivi();
 int pSellPrice = Pbean.getpSellPrice();
 int pQuan = Pbean.getpQuan();
 String pTM = Pbean.getpTM();
@@ -103,10 +103,12 @@ session.setAttribute("Pbean", Pbean);
 				<%=pContent%>
 			</div>
 			<div id="btnArea">
-				<button type="reset">전체 삭제</button>
-				<button type="submit"
+				<button type="button"
 					onclick="location.href='/product/productList.jsp'">목록보기</button>
-				<input type="hidden" onclick="/product/productAUpdate.jsp" value="수정하기" />
+				<% if (uId_Session.equals(uId))  {  %>
+				<button type="button" id="DelContent">삭제</button>
+				<button type="button" id="UpContent">수정</button>
+				<%} %>
 			</div>
 			<!-- div#btnArea -->
 

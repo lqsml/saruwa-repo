@@ -9,6 +9,7 @@ String uId_Session = (String)session.getAttribute("uId_Session");
 %>
 
 <%@ page import="pack_Product.ProductBean, java.util.Vector"%>
+
 <jsp:useBean id="pMgr" class="pack_Product.ProductMgr" scope="page" />
 
 <%
@@ -155,7 +156,7 @@ Vector<ProductBean> pList = null;
 						int pSellPrice = Pbean.getpSellPrice();
 						int pReadCnt = Pbean.getpReadCnt();
 				%>
-						<tr class="prnTr" onclick="read('<%=pNum%>', '<%=nowPage%>')">
+						<tr class="prnTr" onclick="productContent('<%=pNum%>', '<%=nowPage%>')">
 						<td><%=pNum %></td>
 						<td><%=pName %></td>
 						<td><%=pOrigPrice %></td>
