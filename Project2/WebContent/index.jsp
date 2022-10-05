@@ -7,8 +7,11 @@ String uId_Session = (String)session.getAttribute("uId_Session");
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>MainPage</title>
+	<meta charset="UTF-8">
+	<title>MainPage</title>
+	<link rel="shortcut icon" href="#">
+	<link rel="stylesheet" href="/style/style_Test.css">
+	<script src="/source/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 		<!-- 헤더템플릿 -->
