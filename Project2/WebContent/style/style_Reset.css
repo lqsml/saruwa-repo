@@ -39,7 +39,21 @@ ul{
 img {
     vertical-align: top;
 }
+iframe {
+	width: 100%;
+	height: 700px;
+   /* border: 1px solid #08f; */
+  	border: none;
+	/* overflow: hidden; */
+	
+	position: relative;
+	z-index: 1;
+	
+}
 
+iframe#iframeFooter {
+	top: -100px;	
+}
 /* 구버전 브라우저에서 시맨틱요소 인식용 */
 header, nav, main, section, article,
 aside, footer, address {

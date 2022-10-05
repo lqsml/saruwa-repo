@@ -1,15 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+request.setCharacterEncoding("UTF-8");
+String uId_Session = (String)session.getAttribute("uId_Session"); 
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>MainPage</title>
 </head>
 <body>
-	<iframe src="common/headerTmp.jsp" frameborder="0" scrolling="no"></iframe>
+		<!-- 헤더템플릿 -->
+		<iframe src="/common/headerTmp.jsp" frameborder="0" scrolling="no"></iframe>
+		<!-- 헤더템플릿 -->
 	
+	<div id="wrap">
+		<main id="main">
+		
+		</main>
+	</div>
 	
-	<iframe src="common/footerTmp.jsp" frameborder="0" scrolling="no"></iframe>
+		<!-- 푸터템플릿 -->
+		<iframe src="/common/footerTmp.jsp" frameborder="0" scrolling="no"></iframe>
+		<!-- 푸터템플릿 -->	
 </body>
 </html>

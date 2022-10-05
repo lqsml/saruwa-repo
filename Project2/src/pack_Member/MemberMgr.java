@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Vector;
 
 import pack_DBCP.DBConnectionMgr;
 
@@ -98,8 +99,8 @@ public class MemberMgr {
 	}
 
 	// 로그인
-	public int memberLogin(String uId, String uPw) {
-		int loginRes = -1; // -1 : 비회원 , 0 : 관리자, 1 : 회원
+	public boolean memberLogin(String uId, String uPw) {
+		boolean loginRes = false; 
 
 		try {
 
@@ -116,8 +117,7 @@ public class MemberMgr {
 			if (objRS.next()) {
 
 				int recordCnt = objRS.getInt(1);
-				if (recordCnt == 1);
-//					loginRes = true;
+				if (recordCnt == 1) loginRes = true;
 
 			}
 
@@ -128,6 +128,34 @@ public class MemberMgr {
 		}
 
 		return loginRes;
+	}
+	public int chkStatus(String uId, String uPw) { // 0 이 관리자, 1 은 일반회원, -1 은 없는 정보
+		
+		int status = -1;
+		
+		try {
+			
+			objPool = DBConnectionMgr.getInstance();
+			objConn = objPool.getConnection();
+			
+			String sql = "select status from UserInfo where uId = ? and uPw = ?";
+			objPstmt = objConn.prepareStatement(sql);
+			
+			objPstmt.setString(1, uId);
+			objPstmt.setString(2, uPw);
+			objRS = objPstmt.executeQuery();
+			
+			if (objRS.next()) {
+				status = objRS.getInt("status");
+			}
+			
+		} catch (Exception e) {
+			System.out.println("Exception : " + e.getMessage());
+		} finally {
+			objPool.freeConnection(objConn, objPstmt, objRS);
+		}
+		
+		return status;
 	}
 
 	// 아이디 찾기
@@ -308,4 +336,7 @@ public class MemberMgr {
 		
 		return quitRes;
 	}
+
+	
+	
 }
