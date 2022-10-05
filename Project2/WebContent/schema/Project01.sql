@@ -14,8 +14,8 @@ uPw           varchar(200)    not null    comment '비밀번호',
 uName         varchar(200)    not null    comment '이름(실명)', 
 uEmail         varchar(200)    not null    comment '이메일', 
 uPhone        nchar(13)         not null    comment '휴대폰번호', 
-address      varchar(200)      not null    comment '주소', 
 zipcode       int                     not null    comment '우편번호', 
+address      varchar(200)      not null    comment '주소', 
 faveFood      char(10)                    null        comment '선호음식(select)', 
 sa             int                   null        comment '선택약관동의여부',
 joinTM      datetime         not null,
@@ -24,8 +24,8 @@ status         int            not null
 
 alter table UserInfo comment '회원정보 테이블';
 
-insert into UserInfo (uId, uPw, uName, uEmail, uPhone, zipcode, address, joinTM, status)
-			 values ('sample', '1234', '샘플', 'sample@gmail.com', '010-1234-5678', '12345', '서울시', now(), 1);
+insert into UserInfo (uId, uPw, uName, uEmail, uPhone, zipcode, address, faveFood, sa, joinTM, status)
+			 values ('sample', '1234', '샘플', 'sample@gmail.com', '010-1234-5678', '12345', '서울시', '11000', 1, now(), 1);
 
 ### 관리자 아이디 
 insert into UserInfo (uId, uPw, uName, uEmail, uPhone, zipcode, address, joinTM, status) 
@@ -35,7 +35,8 @@ insert into UserInfo (uId, uPw, uName, uEmail, uPhone, zipcode, address, joinTM,
 desc UserInfo;
 
 select * from UserInfo order by uNum desc;
-#drop table UserInfo;
+
+##drop table UserInfo;
 
 ####### 상품 테이블 ########
 create table Products(
