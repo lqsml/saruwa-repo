@@ -26,9 +26,9 @@ String uId_Session_HTmp = (String)session.getAttribute("uId_Session");
             		|
             		<a href="/login/login.jsp">Order</a>
 				<% } else { %>
-            		<a href="/logout/logout.jsp">Logout</a>
+            		<a href="/login/logout.jsp">Logout</a>
             		|
-            		<a href="/myPage/myPage.jsp?gnbParam=myPage">My Page</a>
+            		<a href="/mypage/mypage.jsp?gnbParam=myPage">My Page</a>
             		|
             		<a href="/cart/cart.jsp?">Cart</a>
             		|
